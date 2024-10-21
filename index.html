@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter!</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>Temperature Converter</h1>
+        <label>Enter Temperature in Celsius:</label>
+        <br>
+        <input type="number" id="user_celsius" placeholder=" Convert &deg;C to Fahrenheit!">
+        <br><br>
+        <label>Enter Temperature in Fahrenheit:</label>
+        <br>
+        <input type="number" id="user_fahrenheit" placeholder="Convert &deg;F to Celcius!">
+        <br><br>
+        <button onclick="temperatureConvert()">Generate Results</button>
+
+        <div id="generate"></div>
+    </div>
+
+
+    <!-- JS functionality apply -->
+    <script>
+        function temperatureConvert() {
+            // Get the Celsius and Fahrenheit values
+            var celsius = document.getElementById("user_celsius").value;
+            var fahrenheit = document.getElementById("user_fahrenheit").value;
+
+            // Convert Celsius to Fahrenheit
+            if (celsius !== "") {
+                var fahrenheitFromCelsius = (celsius * 9 / 5) + 32;
+                document.getElementById("generate").innerHTML = ('=>' + "" + "" + celsius + ' ' + "&deg;C is " + fahrenheitFromCelsius + ' ' + "&deg;F<br>");
+            }
+
+            // Convert Fahrenheit to Celsius
+            if (fahrenheit !== "") {
+                var celsiusFromFahrenheit = (fahrenheit - 32) * 5 / 9;
+                document.getElementById("generate").innerHTML += ('=>' + "" + "" + fahrenheit + ' ' + "&deg;F is " + celsiusFromFahrenheit + ' ' + "&deg;C<br>");
+            }
+        }
+    </script>
+</body>
+
+</html>
